@@ -1,7 +1,6 @@
 import {combineReducers} from "redux";
 
 import * as types from "../types/babies";
-import {default} from "react-redux/lib/utils/Subscription";
 
 const order = (state = [], action) =>{
     switch (action.type){
@@ -19,7 +18,7 @@ const byId = (state = {}, action) =>{
         case types.BABY_ADDED:{
             return {
                 ...state,
-                [action.payload]:action.payload,
+                [action.payload.id]:action.payload,
             }
         }
         default:{
@@ -39,7 +38,7 @@ const selectedBaby = (state = null, action) =>{
     }
 };
 
-const babyReducer = combineReducers(
+const babyReducers = combineReducers(
     {
         order,
         byId,
@@ -47,4 +46,4 @@ const babyReducer = combineReducers(
     }
 );
 
-export default babyReducer;
+export default babyReducers;
