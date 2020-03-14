@@ -1,0 +1,33 @@
+.event {
+    background-color: papayawhip;
+    display: flex;
+    flex-direction: column;
+    height: 8rem;
+    margin: 1rem;
+    position: relative;
+    transition: 0.25s;
+    width: 25rem;
+}
+
+.delete-event{
+    border-radius: 1.5rem;
+    height: 3rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3rem;
+    z-index: 2;
+}
+
+.title{
+    margin-bottom: 1rem;
+}
+
+.fecha{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.notas{
+    margin-bottom: 1rem;
+}

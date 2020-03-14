@@ -53,4 +53,8 @@ const eventsReducers = combineReducers({
     byBabyId
 });
 
+export const getEventsFromBaby = (state, babyId) => state.byBabyId[babyId];
+export const getEventFromId = (state, eventId) => state.byId[eventId];
+
+
 export default eventsReducers;

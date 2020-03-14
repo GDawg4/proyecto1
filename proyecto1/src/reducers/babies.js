@@ -30,7 +30,7 @@ const byId = (state = {}, action) =>{
 const selectedBaby = (state = null, action) =>{
     switch (action.type) {
         case types.BABY_SELECTED:{
-            return action.payload.id
+            return action.payload.index
         }
         default:{
             return state
@@ -46,4 +46,7 @@ const babyReducers = combineReducers(
     }
 );
 
+export const getBaby = (state, id) => state.byId[id];
+export const getAllBabies = state => state['order'];
+export const getSelectedBaby = state => state.selectedBaby;
 export default babyReducers;

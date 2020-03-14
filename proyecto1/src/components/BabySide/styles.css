@@ -1,0 +1,11 @@
+.baby-wrapper{
+    background-color: rebeccapurple;
+    overflow: auto;
+}
+.current-info{
+    background-color: red;
+}
+
+.header{
+    background-color: red;
+}
