@@ -1,45 +1,53 @@
 import React from 'react'
 import "./styles.css"
 import { connect } from 'react-redux';
-import * as eventSelectors from '../../reducers'
+import * as selectors from '../../reducers'
 import * as actions from '../../actions/events'
 
 const Event = ({
-   type,
-   date,
-   notes,
-   testClick
+   event,
+    testClick
 }) =>  (
     <div className='event'>
         <div className="fecha">
-            {date}
+            {event['date']}
         </div>
 
         <div className="title">
-            {type}
+            {event['id']}
         </div>
 
         <div className="notas">
-            {notes}
+            {event['notes']}
         </div>
 
-        <button className='delete-event'  onClick = {testClick} >
+        <button className='delete-event' onClick = {testClick} >
             {'X'}
         </button>
     </div>
 );
 
+const mapStateToProps = (state, { id }) => ({
+    state:state,
+    event: selectors.getEventById(state, id),
+    currentBaby: selectors.getSelectedBaby(state)
+});
+
+const mapDispatchToProps = (dispatch, { id }) => ({
+    dispatch:dispatch
+    });
+
+const mergeProps = (stateProps, dispatchProps, {id}) => ({
+    event:stateProps['event'],
+    testClick(){
+        dispatchProps['dispatch'](actions.deleteEvent(stateProps['currentBaby'], id))
+    }
+});
+
 export default connect(
-    (state, { id }) => ({
-        type: eventSelectors.getEventById(state, id)["id"],
-        date: eventSelectors.getEventById(state, id)["date"],
-        notes: eventSelectors.getEventById(state, id)["notes"],
-    }),
-    (dispatch, { id }) => ({
-        testClick() {
-            dispatch(actions.deleteEvent(id));
-        },
-    }),
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps,
 )(Event);
 
 /*export default connect(

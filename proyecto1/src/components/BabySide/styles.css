@@ -1,11 +1,14 @@
 .baby-wrapper{
-    background-color: rebeccapurple;
     overflow: auto;
 }
 .current-info{
-    background-color: red;
+    margin-left: 1rem;
+    margin-top: 1rem;
 }
 
-.header{
-    background-color: red;
+
+
+.select-baby{
+    margin-left: 1rem;
+    margin-top: 1rem;
 }

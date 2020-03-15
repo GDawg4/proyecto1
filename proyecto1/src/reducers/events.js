@@ -3,7 +3,7 @@ import omit from "lodash/omit";
 import * as types from "../types/events";
 import isNil from "lodash/isNil";
 import filter from "lodash/filter";
-
+import * as selectors from '../reducers'
 
 const byId = (state = {}, action) => {
     switch (action.type) {
@@ -39,7 +39,7 @@ const byBabyId = (state = {}, action) =>{
         case (types.EVENT_DELETED):{
             return {
                 ...state,
-                [action.payload.baby]:filter(state[action.payload.baby], function (item){return item === action.payload.event})
+                [action.payload.baby]:filter(state[action.payload.baby], function (item){return item !== action.payload.event})
             }
         }
         default:{
