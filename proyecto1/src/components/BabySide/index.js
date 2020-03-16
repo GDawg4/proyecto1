@@ -6,11 +6,10 @@ import * as babyActions from '../../actions/babies'
 import './styles.css'
 import { Field, reduxForm } from 'redux-form'
 import isNil from 'lodash/isNil'
-const BabySide = ({babyInfo, allBabies, handleSubmit}) =>
+import {Link} from "react-router-dom";
+
+const BabySide = ({babyInfo, allBabies, handleSubmit, addBaby}) =>
     {
-        /*const handleSubmit = () =>{
-            console.log('yay')
-        };*/
         return(
             <div className='baby-wrapper'>
                 <div className="header">
@@ -25,16 +24,19 @@ const BabySide = ({babyInfo, allBabies, handleSubmit}) =>
                         }
                     </div>
                     <DecoratedForm allBabies={allBabies} handleSubmit={handleSubmit}/>
-                    <button className='add-baby'>
-                        +
-                    </button>
+                    <Link to={'/addBaby'}>
+                        <button>
+                            +
+                        </button>
+                    </Link>
+
                 </div>
                 <Events/>
             </div>
         )
     };
 
-const BabyForm = ({allBabies, handleSubmit}) =>{
+const SelectBabyForm = ({allBabies, handleSubmit}) =>{
     return(
             <form onSubmit={handleSubmit(handleSubmit)}>
                     <label>Elegir bebe</label>
@@ -56,7 +58,7 @@ const DecoratedForm = reduxForm({
     onClick(){
         console.log('yay')
     }
-})(BabyForm);
+})(SelectBabyForm);
 
 export default connect(
     state => ({
@@ -74,13 +76,9 @@ export default connect(
         handleSubmit(){
             try {
                 propsFromDispatch['dispatch'](babyActions.selectBaby(propsFromState['formState'].babies.values['selectedBaby']));
-                console.log('submittedSome')
             }catch (typeError) {
-                console.log('primera vez')
             }
         }
     }),
 )(BabySide)
 
-/*
-export default BabySide;*/

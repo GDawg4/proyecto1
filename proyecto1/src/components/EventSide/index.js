@@ -17,7 +17,7 @@ const EventSide = ({addEvent}) => (
     </div>
 );
 
-const BabyForm = () => (
+const AddEventForm = () => (
     <form>
         <label>Agregar evento</label>
         <div className='baby-form'>
@@ -34,7 +34,7 @@ const BabyForm = () => (
 
 const NewEventForm = reduxForm({
     form:'newEvent'
-})(BabyForm);
+})(AddEventForm);
 
 export default connect(
     (state) => ({

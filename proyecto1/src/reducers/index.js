@@ -6,8 +6,9 @@ import {reducer as formReducer} from 'redux-form'
 const reducer = combineReducers({
     babyReducers,
     eventsReducers,
-    form:formReducer
+    form:formReducer,
 });
+
 
 export const getBaby = (state, id) => babySelectors.getBaby(state.babyReducers, id);
 export const getAllBabies = (state) => babySelectors.getAllBabies(state.babyReducers);
