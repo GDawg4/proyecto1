@@ -9,12 +9,12 @@ const Event = ({
     testClick
 }) =>  (
     <div className='event'>
-        <div className="fecha">
-            {event['date']}
+        <div className="title">
+            {event['type']}
         </div>
 
-        <div className="title">
-            {event['id']}
+        <div className="fecha">
+            {event['date']}
         </div>
 
         <div className="notas">
@@ -50,16 +50,4 @@ export default connect(
     mergeProps,
 )(Event);
 
-/*export default connect(
-    ((state, {id}) => ({
-        type: eventSelectors.getEventById(state, id)["id"],
-        date: eventSelectors.getEventById(state, id)["date"],
-        notes: eventSelectors.getEventById(state, id)["notes"],
-    })),
-    ((dispatch, {id}) => ({
-            testClick() {
-                dispatch(actions.deleteEvent(id))
-            }
-        })
-    )
-)(Event);*/
+

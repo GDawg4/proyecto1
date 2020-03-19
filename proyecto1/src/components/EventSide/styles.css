@@ -1,6 +1,11 @@
+.add-event-button{
+    border-radius: 10%;
+    margin-left: 1rem;
+}
+
 .event-side{
-    background-color: papayawhip;
-    margin-left: 2rem;
+    background-color: #ffc182  ;
+    width: 27rem;
 }
 
 .baby-form{
@@ -10,4 +15,8 @@
 
 .input{
     margin-top: 1rem;
+}
+
+.title2{
+    margin-top: 3rem;
 }

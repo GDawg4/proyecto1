@@ -16,17 +16,17 @@ const BabySide = ({babyInfo, allBabies, handleSubmit, addBaby}) =>
                     <div className="current-info">
                         {
                             isNil(babyInfo) ? (
-                                <h1>
+                                <div className='title'>
                                     {'Favor seleccionar'}
-                                </h1>
+                                </div>
                             ):
-                                <div>{babyInfo['firstName']} {babyInfo['lastName']}</div>
+                                <div className='title'>{babyInfo['firstName']} {babyInfo['lastName']}</div>
                         }
                     </div>
                     <DecoratedForm allBabies={allBabies} handleSubmit={handleSubmit}/>
                     <Link to={'/addBaby'}>
-                        <button>
-                            +
+                        <button className= 'redirect-button'>
+                            Agregar bebe
                         </button>
                     </Link>
 
@@ -38,10 +38,10 @@ const BabySide = ({babyInfo, allBabies, handleSubmit, addBaby}) =>
 
 const SelectBabyForm = ({allBabies, handleSubmit}) =>{
     return(
-            <form onSubmit={handleSubmit(handleSubmit)}>
-                    <label>Elegir bebe</label>
+            <form className='baby-form' onSubmit={handleSubmit(handleSubmit)}>
+                    <label className='choose-baby'>Elegir bebe</label>
                     <div>
-                        <Field name="selectedBaby" component="select">
+                        <Field className='select-baby-field' name="selectedBaby" component="select">
                             <option value = ''> </option>
                             {allBabies.map(
                                 baby => <option key={baby} value={baby}> {baby} </option>

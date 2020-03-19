@@ -11,10 +11,10 @@ import {Link} from "react-router-dom";
 
 const AddBaby = ({addBaby}) => (
     <div className='add-baby'>
-        <NewBabyForm/>
+        <NewBabyForm className='baby-form'/>
         <Link to='allBabies'>
-            <button onClick={addBaby}>
-                +
+            <button className='add-baby-button' onClick={addBaby}>
+                Agregar bebe
             </button>
         </Link>
     </div>
@@ -22,7 +22,7 @@ const AddBaby = ({addBaby}) => (
 
 const AddBabyForm = () => (
     <form>
-        <label>Agregar bebé</label>
+        <label className='title'>Agregar bebé</label>
         <div className='baby-form'>
             <Field className='input' name='nombre' component='input' type='text' placeholder='Nombre'/>
             <Field className='input' name='apellido' component='input' type='text' placeholder='Apellido'/>
@@ -43,11 +43,18 @@ export default connect(
     }),
     (state, dispatch) => ({
         addBaby(){
-            dispatch['dispatch'](babyActions.addBaby(
-                globalConst.createID(),
-                selectors.getForm(state['state']).newBaby.values['nombre'],
-                selectors.getForm(state['state']).newBaby.values['apellido'],
-            ));
+            console.log(state['state'])
+            try {
+                if (!isNil(state.form.newBaby.values['nombre']) || !isNil(state.form.newBaby.values['apellido'])){
+                    dispatch['dispatch'](babyActions.addBaby(
+                        globalConst.createID(),
+                        selectors.getForm(state['state']).newBaby.values['nombre'],
+                        selectors.getForm(state['state']).newBaby.values['apellido'],
+                    ));
+                }
+            }catch (typeError) {
+
+            }
             console.log(state['state'])
         }
     })

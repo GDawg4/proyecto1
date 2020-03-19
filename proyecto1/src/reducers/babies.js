@@ -5,7 +5,7 @@ import * as types from "../types/babies";
 const order = (state = [], action) =>{
     switch (action.type){
         case types.BABY_ADDED:{
-            return [...state, action.payload.id];
+            return [...state, action.payload.firstName];
         }
         default:{
             return state;

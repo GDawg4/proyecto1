@@ -1,4 +1,25 @@
+.add-baby-button{
+    border-radius: 10%;
+    margin-left: 1rem;
+    text-align: center;
+}
+
 .add-baby{
-    background-color: papayawhip;
-    width: 10rem;
+    background-color: #82ffff;
+    height: 12rem;
+    width: 20rem;
+}
+
+.baby-form{
+    margin: 1rem;
+}
+
+.title{
+    margin: 1rem;
+    font-family: sans-serif;
+    font-size: 2rem;
+}
+
+.input{
+    height: 1rem;
 }

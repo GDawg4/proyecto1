@@ -13,13 +13,13 @@ import isNil from 'lodash/isNil'
 const EventSide = ({addEvent}) => (
     <div className='event-side'>
         <NewEventForm />
-        <button onClick={addEvent}>Submit</button>
+        <button className='add-event-button' onClick={addEvent}>Submit</button>
     </div>
 );
 
 const AddEventForm = () => (
     <form>
-        <label>Agregar evento</label>
+        <label className='title'>Agregar evento</label>
         <div className='baby-form'>
             <Field className='input' name="selectType" component="select">
                 <option value = ''> </option>
